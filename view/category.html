@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,minimal-ui">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="/static/css/all.css"/>
+    <title>Title</title>
+    <style>
+        #app{
+            position:relative;
+            top:40px;
+        }
+
+        .ca_title{
+            height: 50px;
+            margin:20px 0 20px 28px;
+            font-size: 13px;
+            line-height: 50px;
+            color:#999;
+        }
+        .ca_list{
+            width:100%;
+            margin-left:-40px;
+        }
+        .ca_list li{
+            list-style: none;
+            height: 72px;
+            width:48%;
+            display: inline-block;
+            margin-bottom:15px;
+        }
+        .ca_list li:nth-child(2n+1){
+            margin-left:0;
+        }
+        .ca_list li:nth-child(2n+2){
+            margin-left:4%;
+        }
+        .ca_item{
+            padding-top:22px;
+            padding-left:8px;
+            padding-bottom:18px;
+            box-sizing: border-box;
+            background-position: right bottom;
+        }
+        .ca_item>h3,p{
+            margin:0;
+            font-size: 12px;
+        }
+        .ca_item>h3{
+            color:#5a5f5b;
+        }
+        .ca_item>p{
+            color:#5a5f5b;
+        }
+    </style>
+</head>
+<body>
+<div id="root">
+  <div class="category">
+      <div style="width:734px;">
+          <% include include/common-header.html %>
+          <div id="app" class="container-wrap"style="width: 734px;">
+              <div style="width:734px;" class="container-scroll">
+                  <div class="category_wrap">
+                      <section class="ca_male">
+                          <div class="ca_title"> <em class="ca_num"></em>
+                              <h1>网文男频</h1>
+                          </div>
+                          <ul class="ca_list">
+                              <li v-for="item in male">
+                                  <div class="ca_item" style="background-image:url({{item.new_image}}!m);">
+                                      <h3>{{item.label}}</h3>
+                                      <p class="num">{{item.fiction_count}}</p>
+                                  </div>
+                              </li>
+                          </ul>
+                      </section>
+                      <section class="ca_female">
+                          <div class="ca_title"> <em class="ca_num"></em>
+                              <h1>网文女频</h1>
+                          </div>
+                          <ul class="ca_list">
+                              <li v-for="item in male">
+                                  <div class="ca_item" style="background-image:url({{item.new_image}}!m);">
+                                      <h3>{{item.label}}</h3>
+                                      <p class="num">{{item.fiction_count}}</p>
+                                  </div>
+                              </li>
+                          </ul>
+                      </section>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<script src="/static/script/vue.js"></script>
+<script src="/static/script/zepto.js"></script>
+<script src="/static/script/pages/category.js"></script>
+</body>
+</html>

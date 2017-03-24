@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,minimal-ui">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="/static/css/all.css"/>
+    <title>男生频道</title>
+    <style>
+        body{margin:0;padding:0;}
+        .top{
+            position: relative;
+            height: 44px;
+            border-bottom: 1px solid #ddd;
+            font:15px/45px a;
+            color:rgba(0,0,0,0.7);
+            background-color: #efeff0;
+        }
+        .top__back{
+            float: left;
+            width: 42px;
+            height: 44px;
+        }
+        .top__back:before{
+            content: '';
+            display: block;
+            margin:15px 0 0 16px;
+            width: 10px;
+            height: 16px;
+            background: url("../../static/img/back.png") no-repeat;
+            background-size: 10px 16px;
+        }
+        .header__home {
+            float: right;
+            width: 44px;
+            height: 44px;
+            background: url(http://image.read.duokan.com/mfsv2/download/fdsc3/p01eZH42sBV7/QTS90E2ZVritaa.png) no-repeat center;
+            background-size: 16px;
+        }
+        .channel-group__header h2{
+            margin:0;
+        }
+        .book-h5__info p:nth-child(1){
+            margin-top:0;
+            text-decoration: none;
+        }
+        .book-h5__info p:nth-child(2){
+            text-decoration: none;
+        }
+        .book-h5__wrap{
+            overflow: hidden;
+        }
+        .book-h5__wrap >p{
+            display: inline-block;
+            float: left;
+        }
+        .book-h5__wrap >div{
+            display: inline-block;
+            float: right;
+            border-color:#736c6c;
+            color:#736c6c;
+        }
+
+
+    </style>
+</head>
+<body>
+<div id="root" style="overflow: hidden;">
+    <section  style="width: 734px; transition-duration: 0s; transform: translate3d(0px, 0px, 0px);">
+        <div class="top">
+            <a href="./" class="top__back"></a>
+            <span class="top__title">男生频道</span>
+            <a href="" class="header__home"></a>
+        </div>
+
+    </section>
+    <div class="container-wrap"style="width: 734px;">
+        <div class="container-scroll">
+
+            <div id="app" style="width: 734px; transition-duration: 0s; transform: translate3d(0px, 0px, 0px);">
+                <section class="channel-group" v-for="section in items" style="width: 734px;">
+                    <div class="channel-group__header">
+                        <h2 class="channel-group__title">{{ section.ad_name }}</h2>
+                    </div>
+                    <ul class="list-h5">
+                        <li v-for="book in section.data.data">
+                            <div class="book-h5">
+                                <div class="book-h5__cover">
+                                    <img alt="{{ book.title }}" v-bind:src="book.cover"/>
+                                </div>
+                                <div class="book-h5__info">
+                                    <p class="book-h5__title">{{ book.title }}</p>
+                                    <p class="book-h5__summary">{{ book.summary }}</p>
+
+                                    <div class="book-h5__wrap">
+                                        <p class="book-h5__author">{{ book.authors }}</p>
+                                        <div class="book-h5__tag" v-for="tag in book.tags">{{ tag }}</div>
+                                    </div>
+                                </div>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<script src="/static/script/vue.js"></script>
+<script src="/static/script/zepto.js"></script>
+<script src="/static/script/pages/channel.js"></script>
+</body>
+</html>

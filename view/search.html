@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,minimal-ui">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="/static/css/all.css"/>
+    <title>Title</title>
+    <style>
+        body{
+            margin:0;
+        }
+        .top{
+            width: 100%;
+            height: 45px;
+            position: relative;
+        }
+        #search-input{
+            width: 650px;
+            height: 35px;
+            background: #fff;
+            line-height: 35px;
+            border-color:#e4e4e4;
+            position: absolute;
+            top:3px;
+            right:45px;
+        }
+        #search_box{
+            font-size: 13px;
+            width:568px;
+            height: 33px;
+            line-height: 33px;
+            position: absolute;
+            top:0;
+            left:36px;
+            border:1px solid #e4e4e4;
+        }
+        .search-input__mi{
+            display: inline-block;
+            width:35px;
+            height: 35px;
+            background: url(http://image.read.duokan.com/mfsv2/download/fdsc3/p01j041d5DOT/boUg2EJlVetOMC.png) no-repeat;
+            background-position: 10px 10px;
+            background-size: 18px 16px;
+            border:1px solid #e4e4e4;
+            border-right:none;
+        }
+
+        .search-input__btn{
+            position: absolute;
+            width:43px;
+            height:35px;
+            border:1px solid #e4e4e4;
+            border-left:none;
+            top:0;
+            right:0;
+            text-align: center;
+        }
+        .top__bd ul{
+            margin:20px 20px;
+        }
+        .search_info{
+            margin-left:100px;
+        }
+        .f-cb a{
+            color: #2f2f2f;
+            text-decoration: none;
+        }
+      .search-tag{
+          padding-left:0;
+      }
+    </style>
+</head>
+<body>
+<div id="root">
+    <div style="width: 734px; transition-duration: 0s; transform: translate3d(0px, 0px, 0px);">
+        <div style="wifth:734px;">
+            <div class="header-tab" id="app_header">
+                <div class="Swipt-tab Swipt-tab_2 f-cb">
+                    <a href="javascript:;" v-on:click="tabSwitch(0)" class="{{ tab_1_class }}"></a>
+                    <a href="javascript:;" v-on:click="tabSwitch(1)" class="{{ tab_2_class }}"></a>
+                    <i style="width:50%;transition-duration: {{ header_duration }}s;transform: translate3d({{ header_position }}px,0px,0px)"></i>
+                </div>
+                <em class="header-user"></em>
+                <em class="header-checkin"></em>
+            </div>
+            <div class="container_scroll">
+                <div style="width: 734px; transition-duration: 0s; transform: translate3d(0px, 0px, 0px);">
+                    <div id="app_search" style="width:734px">
+                        <div class="search">
+                            <div class="top">
+                                <a href="./" class="top__back"></a>
+                                <div id="search-input" class="search-input"> <b class="search-input__mi"></b>
+                                    <input style="width:{{ input_width }}" type="text" value="" id="search_box" placeholder="输入书名/作者/关键字 如123">
+                                    <div class="search-input__btn" v-on:click="doSearch" >搜索</div>
+                                </div>
+                            </div>
+                            <div class="top__bd" v-show="condition">
+                                <div>
+                                    <ul class="m-tag -color search-tag">
+                                        <li class="u-tag" id="Tag__128">我的绝美女神老婆</li>
+                                        <li class="u-tag" id="Tag__129">复仇千金</li>
+                                        <li class="u-tag" id="Tag__130">盗墓</li>
+                                        <li class="u-tag" id="Tag__131">豪门小老婆</li>
+                                        <li class="u-tag" id="Tag__132">庶女</li>
+                                        <li class="u-tag" id="Tag__133">神医</li>
+                                        <li class="u-tag" id="Tag__134">魔兽</li>
+                                        <li class="u-tag" id="Tag__135">我的老婆是双胞胎</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="top__bd" v-show="!condition">
+                                <ul class="list-h5">
+                                    <li v-for="item in search">
+                                        <div class="book-h5">
+                                            <div >
+                                                <div class="book-h5__cover">
+                                                    <img alt="{{ item.title }}" v-bind:src="item.cover">
+                                                    <div class="u-tagRT"></div>
+                                                </div>
+                                                <div class="info search_info">
+                                                    <h3 class="book-h5__title">{{ item.title }}</h3>
+                                                    <p class="book-h5__summary">{{ item.intro }}</p>
+                                                    <div class="wrap">
+                                                        <p class="author single-line">
+                                                            <span>{{ item.authors }}</span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="ListView ListView_complete" v-show="empty">
+                                    <div class="ListView__empty">
+                                        <p class="u-tip">没有相应的搜索结果</p>
+                                    </div>
+                                    <div class="ListView__complete"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<script src="/static/script/vue.js"></script>
+<script src="/static/script/zepto.js"></script>
+<script src="/static/script/pages/search.js"></script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,minimal-ui">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="/static/css/all.css"/>
+    <title>分类</title>
+    <style>
+        body{margin:0;padding:0;}
+        .rank_wrap{
+            margin:0;
+            padding:0;
+        }
+        .rank_list{
+            list-style: none;
+            height:84px;
+            padding:10px 0 7px 17px;
+
+        }
+        .rank_list img{
+            width: 87px;
+            height:87px;
+            display: inline-block;
+            margin-bottom:18px;
+        }
+
+        .rank_info{
+            width:200px;
+            margin-top:-110px;
+            margin-left:115px;
+        }
+        .rank_title{
+            line-height: 14px;
+            font-size: 12px;
+        }
+        .rank_container{
+            position: relative;
+            top:50px;
+        }
+    </style>
+</head>
+<body>
+<div id="root">
+
+    <div class="rank">
+        <div style="width: 734px; transition-duration: 0s; transform: translate3d(0px, 0px, 0px);">
+            <div style="width: 734px;">
+                <% include include/common-header.html %>
+                <div class="rank_container container-wrap"style="width: 734px;">
+                    <div class="container-scroll" style="width: 1468px; transition-duration: 0s; transform: translate3d(0px, 0px, 0px);">
+                        <div style="width: 734px;" >
+                            <div id="app">
+                                <ul class="rank_wrap">
+                                    <li class="rank_list" v-if="$index>18" v-for="item in items">
+                                        <img v-bind:src="item.cover">
+                                        <div class="rank_info">
+                                            <p class="rank_title" v-for="book in item.description">
+                                                <span class="">{{ $index + 1}}</span>
+                                                {{ book }}
+                                            </p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/static/script/vue.js"></script>
+<script src="/static/script/zepto.js"></script>
+<script src="/static/script/pages/rank.js"></script>
+</body>
+</html>
